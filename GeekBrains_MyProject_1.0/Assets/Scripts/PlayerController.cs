@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             GameObject b = Instantiate(Bullet, transform.localPosition + new Vector3(1,1,0), Quaternion.Euler(0,0,90));
-            b.GetComponent<Rigidbody>().AddForce((transform.right + new Vector3(0,0.1f,0)) * Power, ForceMode.Impulse);
+            b.GetComponent<Rigidbody>().AddForce((transform.right + new Vector3(0,0.05f,0)) * Power, ForceMode.Impulse);
         }
     }
     private void FixedUpdate()
@@ -66,5 +67,6 @@ public class PlayerController : MonoBehaviour
                 text_end.SetActive(true);
             }
         }
+        
     }
 }
